@@ -1,5 +1,13 @@
 import { cssObj } from '@fuel-ui/css';
-import { Avatar, Box, Flex, Icon, IconButton, Text } from '@fuel-ui/react';
+import {
+  Avatar,
+  Box,
+  Flex,
+  Heading,
+  Icon,
+  IconButton,
+  Text,
+} from '@fuel-ui/react';
 import type { Account } from '@fuel-wallet/types';
 import type { ReactNode } from 'react';
 
@@ -58,6 +66,9 @@ export function BalanceWidget({
       </Flex>
       <Flex justify="space-between" css={styles.balanceDetails}>
         <Flex direction="column" css={styles.balanceContainer}>
+          <Heading as="h6" css={styles.name}>
+            {account.name}
+          </Heading>
           <FuelAddress address={account.address} css={styles.balanceAddress} />
           <Text
             fontSize="2xl"
@@ -143,5 +154,8 @@ const styles = {
     height: '20px !important',
     padding: '0 3px !important',
     borderRadius: 8,
+  }),
+  name: cssObj({
+    margin: '0px 0px -5px',
   }),
 };
